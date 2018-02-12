@@ -1,0 +1,102 @@
+// Part of the Simbioz Theme by Paul Marlow, 2016-2017. All rights reserved.
+
+// General body opacity loader (first part is set in loader.css):
+
+	body {
+		opacity: 1!important;
+	}
+
+// General loader animation:
+
+	@-webkit-keyframes loader-fade {
+		0%   { opacity: 0; }
+		100% { opacity: 1; }
+	}
+	@-moz-keyframes loader-fade {
+		0%   { opacity: 0; }
+		100% { opacity: 1; }
+	}
+	@-o-keyframes loader-fade {
+		0%   { opacity: 0; }
+		100% { opacity: 1; }
+	}
+	@keyframes loader-fade {
+		0%   { opacity: 0; }
+		100% { opacity: 1; }
+	}
+
+// Setting fade-in loader list:
+
+	@fade-time: 0.35s;
+	@fade-type: ease-in;
+
+	.oe_kanban_record,
+	.oe_view_manager_body,
+	.oe_view_manager_wrapper,
+	.oe_view_manger,
+
+	.oe_view_manager_header,
+	.oe_list_content,
+	.oe_kanban_view,
+	.oe_formview,
+
+	body.oe_single_form,
+	.modal {
+		-webkit-animation: loader-fade @fade-time @fade-type;
+		-moz-animation: loader-fade @fade-time @fade-type;
+		-ms-animation: loader-fade @fade-time @fade-type;
+		-o-animation: loader-fade @fade-time @fade-type;
+		animation: loader-fade @fade-time @fade-type;
+	}
+
+
+// Blocking body changes on loading:
+
+	/*.blockUI {
+		display: none!important;
+	}*/
+
+	body {
+
+		filter: none;
+
+		// General dimmer style:
+		/*@loader-delay: 1.5s;
+		&:after {
+			position: absolute;
+			visibility: hidden;
+			transition: opacity 0.5s;
+			background-repeat: no-repeat;
+			background-position: center;
+			background-color: rgba(20, 20, 20, 0.5);
+			background-image: url(/simbioz_theme/static/src/img/loader.gif);
+			background-size: 65px;
+			z-index: 1000000;
+			left: 0; top: 0;
+			content: "";
+			width: 100%;
+			height: 100%;
+			opacity: 0;
+			-webkit-transition-delay: @loader-delay;
+			-moz-transition-delay: @loader-delay;
+			-ms-transition-delay: @loader-delay;
+			transition-delay: @loader-delay;
+		}
+
+		// On body loading:
+		&.oe_wait:after {
+			visibility: visible;
+			opacity: 1;
+		}*/
+
+		// Dimming body:
+		&.oe_wait {
+			/*-webkit-transition-delay: @loader-delay;
+			-moz-transition-delay: @loader-delay;
+			-ms-transition-delay: @loader-delay;
+			transition-delay: @loader-delay;*/
+			pointer-events: none!important;
+		}
+	}
+
+// End of Loader.

@@ -1,0 +1,229 @@
+// Part of the Simbioz Theme by Paul Marlow, 2016-2017. All rights reserved.
+// Flexboxes for Kanban views:
+
+	#flexbox-mixin {
+		display: -ms-flexbox;
+		display: -moz-box;
+		display: -webkit-box;
+		display: -webkit-flex;
+		display: flex;
+	}
+
+	@kanban-width: 350px;
+
+	.oe_kanban_ungrouped {
+
+		.oe_kanban_buttons {
+			border: none!important;
+		}
+
+		.oe_kanban_column_cards {
+			#flexbox-mixin;
+			-ms-flex-flow: row wrap;
+			-moz-flex-flow: row wrap;
+			-webkit-flex-flow: row wrap;
+			flex-flow: row wrap;
+			-moz-justify-content: flex-start;
+			-webkit-justify-content: flex-start;
+			justify-content: flex-start;
+		}
+
+		.oe_kanban_record {
+			#flexbox-mixin!important;
+			position: relative;
+			-ms-flex: 1 1 @kanban-width;
+			-moz-flex: 1 1 @kanban-width;
+			-webkit-flex: 1 1 @kanban-width;
+			-webkit-box-flex: 1;
+			flex: 1 1 @kanban-width;
+			border-radius: 1px;
+			border: none;
+			margin: 5px!important;
+			> div {
+				width: 100%!important;
+			}
+		}
+
+		.oe_kanban_card,
+		.oe_kanban_column {
+			width: 100%!important;
+		}
+
+		.oe_kanban_groups {
+			background: #6f6f6f!important;
+			width: 100%!important;
+		}
+		
+	}
+
+// Grouped kanbans:
+
+	@group-width: 260px;
+	.oe_kanban_grouped {
+
+		// Minimal size:
+		.oe_kanban_card,
+		.oe_kanban_group_header:not(.oe_kanban_group_folded) {
+			min-width: @group-width!important;
+			padding: 10px!important;
+		}
+
+		// Group title:
+		.oe_kanban_group_title {
+			width: @group-width - 20px!important;
+		}
+
+	}
+
+// Kanban record styling:
+
+	.oe_module_vignette, 
+	.oe_kanban_vignette,
+	.oe_employee_vignette {
+
+		// General appearance:
+		#flexbox-mixin!important;
+		align-items: center;
+		background: white;
+		text-align: left;
+		overflow: auto;
+		padding: 5px;
+
+		// Size hacks:
+		width: 100%;
+		height: 140px;
+
+		// Shadows:
+		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 
+			0 1px 2px rgba(0,0,0,0.24);
+		transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+	}
+
+	.oe_kanban_image,
+	.oe_module_icon,
+	.oe_avatar {
+		min-height: 80px!important;
+		min-width: 80px!important;
+		margin-right: 5px;
+	}
+
+	.oe_kanban_card {
+		border-radius: 0px!important;
+		min-height: 111px!important;
+	}
+
+	.oe_kanban_content {
+		.oe_nav_buttons,
+		.oe_wbs_navigation,
+		.oe_wbs_subtitle {
+			width: 100%!important;
+		}
+	}
+
+	.oe_kanban_crm_salesteams .oe_items_list {
+		overflow: hidden!important;
+	}
+
+// Kanban buttons, inputs, etc:
+
+	.openerp .oe_kanban_view {	
+	
+		button, .oe_tag {
+			#mixin-material-button;
+		}
+
+		.oe_kanban_show_more button {
+			background: white!important;
+		}
+
+	}
+
+// HR design:
+	
+	.oe_employee_vignette {
+		
+		.oe_employee_details {
+			width: 100%!important;
+			text-align: right!important;
+			float: right!important;
+		}
+
+		.oe_employee_image {
+			align-self: flex-start;
+			min-width: 100px!important;
+		}
+
+		.oe_followers {
+			position: absolute!important;
+			margin-left: -3px!important;
+			left: -100%!important;
+			bottom: 8px!important;
+			button {
+				width: 100px!important;
+			}
+		}
+	}
+
+// Project design:
+
+	.oe_kanban_project {
+		text-align: center!important;
+		min-height: 93px!important;
+		width: 100%!important;
+	}
+
+// Kanban background colors:
+
+	.oe_kanban_groups_records > .oe_kanban_column:not(.oe_kanban_group_folded):nth-child(odd),
+	.oe_kanban_groups_records > .oe_kanban_column:not(.oe_kanban_group_folded):last-child,
+	.oe_kanban_dummy_cell,
+	.oe_kanban_column,
+	.oe_kanban_view {
+		background: @bg-color!important;
+		border: none!important
+	}
+
+	.oe_kanban_groups_records > .oe_kanban_column:not(.oe_kanban_group_folded):nth-child(even), {
+		background-color: darken(@bg-color, 10%)!important;
+	}
+
+	.oe_kanban_group_folded {
+		background: #f0eeee!important;
+		border-right: 1px solid #b9b9b9!important;
+		border-left: 1px solid #f0f8f8!important;
+	}
+
+// Salesteam fix:
+
+	.openerp .oe_kanban_view .oe_kanban_crm_salesteams {
+
+		.oe_items_list {
+			text-align: left;
+		}
+
+		.oe_items_list div a:nth-child(2n) {
+			width: 20px;
+			float: right;
+			left: auto!important;
+			right: 10px;
+			display: inline-block;
+		}
+
+		.oe_items_list > * {
+			width: 50%!important;
+			padding-left: 5px;
+		}
+
+	}
+
+// Graph widget:
+
+	.graph_widget {
+		background: white!important;
+	}
+
+// Nocontent fix:
+
+	.oe_view_nocontent {
+		z-index: 1!important;
+	}

@@ -1,0 +1,189 @@
+// Part of the Simbioz Theme by Paul Marlow, 2016-2017. All rights reserved.
+// General mail feed:
+
+	.oe_mail {
+	
+		width: 100%!important;
+		padding: 1em!important;
+		margin: 0!important;
+
+		.oe_msg_more_message {
+			text-align: left!important;
+		}
+
+		.oe_msg {
+
+			#mixin-material-shadow;
+			background: white!important;
+			margin-bottom: 10px!important;
+			border-radius: 0!important;
+			border: none!important;
+			padding: 10px!important;
+
+			.oe_msg_icon {
+				margin: 10px!important;
+			}
+
+			.oe_msg_title {
+				margin-bottom: 8px!important;
+			}
+
+			.oe_msg_footer {
+				margin-top: 8px!important;
+			}
+
+			.oe_separator {
+				display: none!important;
+			}
+
+			.oe_msg_icons > span > a {
+				text-shadow: none!important;
+				transition: all 0.25s;
+				color: #ddd!important;
+				&:hover {
+					color: #bbb!important;
+				}
+			}
+
+			// Message composer:
+			&.oe_msg_composer {
+
+				button {
+					#mixin-material-button;
+					height: 24px!important;
+					background: inherit;
+				}
+				
+				.oe_msg_footer {
+					margin-top: 0!important;
+				}
+
+				.oe_full {
+					display: none!important;
+				}
+
+				.oe_attachment_file {
+					
+					.oe_attach {
+						display: none!important;
+					}
+
+					.oe_attach_label {
+						#mixin-material-button;
+						line-height: 24px!important;
+						vertical-align: middle!important;
+						display: inline-block!important;
+						padding: 0 10px!important;
+						margin: 0 5px!important;
+					}
+
+				}
+
+			}
+		}
+
+		.oe_view_nocontent {
+			color: white!important;
+			padding-left: 0!important;
+			text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+		}
+
+		.oe_mail_list_recipients,
+		.oe_recipients {
+			display: none!important;
+		}
+
+		.field_text, textarea {
+			#mixin-material-input;
+		}
+	}
+
+	.oe_mail_wall {
+		background: lighten(@bg-color, 10%)!important;
+		.oe_searchview {
+			margin-bottom: 10px!important;
+		}
+	}
+
+// Mail sidebar:
+
+	.oe_mail_wall_aside {
+		
+		display: none!important;
+
+	}
+
+
+// Form embedded chatter:
+
+	.oe_chatter {
+		
+		max-width: 100%!important;
+		width: 100%!important;
+		background: rgb(237, 237, 237)!important;
+		padding: 16px 16px 16px!important;
+		border: none!important;
+
+		.oe_mail {
+			padding: 0!important;
+		}
+
+		.oe_record_thread {
+			margin-left: 0!important;
+		}
+
+		.oe_msg {
+			background: white!important;
+		}
+
+		.oe_mail .oe_msg .field_text {
+			border-bottom: none!important;
+		}
+
+		.oe_followers {
+
+			#mixin-material-shadow;
+			background: white!important;
+			margin-right: 0!important;
+			width: 200px!important;
+			padding: 10px;
+
+			.oe_follower {
+				width: 155px!important;
+			}
+
+			.oe_remove_follower {
+				right: 10px!important;
+			}
+
+			.oe_edit_subtype {
+				right: 25px!important;
+			}
+
+			.oe_comment {
+				margin-top: 15px;
+				font-weight: 300;
+				font-size: 13px;
+			}
+		}
+
+		&:empty {
+			display: none!important;
+		}
+
+		&:after{
+			display: table;
+			content: "";
+			clear: both;
+		}
+
+	}
+
+
+// Sidebar chatter design:
+
+	.oe_im_users > .oe_im_user { 
+		white-space:nowrap!important;
+		width:100%;
+		text-overflow:ellipsis;
+	}

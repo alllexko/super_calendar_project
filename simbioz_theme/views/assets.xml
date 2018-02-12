@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Part of the Simbioz Theme by Paul Marlow, 2016-2017. All rights reserved. -->
+<openerp>
+	<data>
+
+		<!-- Javascript and CSS data -->
+		<template id="assets_backend_themes" inherit_id="web.assets_backend" name="Custom CSS and JS">
+			<xpath expr="." position="inside">
+
+				<!-- JQuery extensions -->
+				<script type="text/javascript" src="/simbioz_theme/static/lib/jquery/jquery.smartscroll.js"></script>
+				<script type="text/javascript" src="/simbioz_theme/static/lib/jquery/jquery.stickytableheaders.js"></script>
+
+				<!-- Loading fonts and blackout -->
+				<link rel="stylesheet" href="/simbioz_theme/static/src/css/fonts.css"/>
+				<link rel="stylesheet" href="/simbioz_theme/static/src/css/loader.css"/>
+
+				<!-- Theme JS API and LESS compiler -->
+				<script type="text/javascript" src="/simbioz_theme/static/lib/less.min.js"></script>
+				<script type="text/javascript" src="/simbioz_theme/static/src/js/init.js"></script>
+				<script type="text/javascript" src="/simbioz_theme/static/src/js/extensions/less.js"></script>
+
+				<!-- LESS styles entry point -->
+				<link rel="stylesheet/less" type="text/less" href="/simbioz_theme/static/src/less/main.less"/>
+
+				<!-- Extensions -->
+				<script type="text/javascript" src="/simbioz_theme/static/src/js/extensions/sidebar.js"></script>
+				<script type="text/javascript" src="/simbioz_theme/static/src/js/extensions/colorpicker.js"></script>
+				<script type="text/javascript" src="/simbioz_theme/static/src/js/extensions/mobile.js"></script>
+				<script type="text/javascript" src="/simbioz_theme/static/src/js/extensions/editor.js"></script>
+				<script type="text/javascript" src="/simbioz_theme/static/src/js/extensions/keyboard.js"></script>
+				<script type="text/javascript" src="/simbioz_theme/static/src/js/extensions/preview.js"></script>
+				<script type="text/javascript" src="/simbioz_theme/static/src/js/extensions/shortcuts.js"></script>
+				<script type="text/javascript" src="/simbioz_theme/static/src/js/extensions/tree.js"></script>
+				<script type="text/javascript" src="/simbioz_theme/static/src/js/extensions/filters.js"></script>
+				<script type="text/javascript" src="/simbioz_theme/static/src/js/extensions/other.js"></script>
+		
+			</xpath>
+		</template>
+
+		<!-- Color widget -->
+		<template id="assets_backend" name="web_widget_color assets" inherit_id="web.assets_backend">
+			<xpath expr="." position="inside">
+				<link rel="stylesheet" href="/simbioz_theme/static/src/css/widget.css"/>
+				<script type="text/javascript" src="/simbioz_theme/static/lib/jscolor/jscolor.js"></script>
+			</xpath>
+		</template>
+
+		<!-- Setting theme favicon -->
+		<template id="layout" inherit_id="web.layout" 
+				  name="Setting favicon" priority="20"> 
+			<xpath expr="//link[@rel='shortcut icon']" position="replace"> 
+				<link rel="shortcut icon" 
+					  href="simbioz_theme/static/src/img/simbioz.ico"
+					  type="image/x-icon"/> 
+			</xpath> 
+		</template> 
+
+		<!-- Setting default settings -->
+		<record model="ir.actions.server" id="settings_defaults">
+			<field name="name">setting_defaults</field>
+			<field name="model_id" ref="model_simbioz_theme_editor"/>
+			<field name="code">
+				self.defaults_wizard(self, cr, uid, context=context)
+			</field>
+		</record>
+
+		<record id="ir_config_parameter_refresh_timeout" model="ir.config_parameter">
+			<field name="key">web_menu_navbar_needaction.refresh_timeout</field>
+			<field name="value">600000</field>
+		</record>
+		
+	 </data>
+</openerp>

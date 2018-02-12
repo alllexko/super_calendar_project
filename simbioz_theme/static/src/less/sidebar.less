@@ -1,0 +1,99 @@
+/* Sidemenu toggler design */
+
+	.submenu-toggle {
+
+		// General values:
+		position: relative;
+		float: left;
+		color: white;
+		margin-top: 10px;
+		margin-bottom: -1px;
+		margin-left: -10px;
+		background-color: transparent;
+		border: 1px solid transparent;
+		padding: 5px 5px 9px 5px !important;
+		background-image: none;
+		border-radius: 4px;
+
+		// Child elements:
+		.icon-bar {
+			background: white;
+			display: block;
+			width: 22px;
+			height: 2px;
+			margin: 5px;
+			border-radius: 1px;
+		}
+	}
+
+	#oe_main_menu_navbar > .submenu-toggle {
+		margin-left: 10px!important;
+	}
+
+/* Sidemenu design fixes */
+
+	.oe_leftbar {
+
+		// General leftbar styles:
+		display: table-cell!important;
+		max-width: 220px;
+		transition: max-width 0.25s;
+		overflow: hidden;
+		background: #414141!important;
+
+		// Minimized:
+		&.oe_minimized:not(:hover) {
+			max-width: 49px;
+			box-shadow: inset -15px 0px 15px rgba(0, 0, 0, 0.25);
+			border: none;
+			&:before {
+				background-color: rgba(10, 10, 10, 0.8);
+			}
+		}
+
+		// Tinting block:
+		&:before {
+			transition: background-color 0.25s;
+			background-color: none;
+			pointer-events: none;
+			height: 100%; width: 100%;
+			max-width: inherit;
+			position: absolute;
+			display: block;
+			content: "";
+			z-index: 2;
+		}
+
+		// Button size:
+		.oe_menu_leaf {
+			padding: 8px 10px!important;
+		}
+
+		.oe_secondary_menu > .oe_secondary_submenu > li > .oe_menu_leaf {
+			padding-left: 16px!important;
+		}
+
+		.oe_secondary_submenu .oe_secondary_submenu li {
+			margin-left: 0!important;
+		}
+
+		.oe_secondary_submenu .oe_secondary_submenu {
+			padding-left: 16px!important;
+		}
+
+		.oe_menu_toggler {
+			padding: 8px!important;
+			padding-left: 20px!important;
+		}
+
+		// Text shadow:
+		li.active {
+			text-shadow: 1px 1px 0px black;	
+		}
+
+		// Hiding footer:
+		.oe_footer {
+			display: none!important;
+		}
+
+	}

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="upgrade_super_calendar_form" model="ir.ui.view">
+            <field name="name">upgrade.super.calendar.form</field>
+            <field name="model">super.calendar</field>
+            <field name="inherit_id" ref="super_calendar.super_calendar_form"/>
+            <field name="arch" type="xml">
+
+                <xpath expr="//field[@name='user_id']" position="attributes">
+                    <attribute name="readonly">1</attribute>
+                </xpath>
+
+                <xpath expr="//field[@name='res_id']" position="after">
+                    <!-- <button string="Generate name" type="object" name="upgsucal" class="oe_highlight"/> -->
+                    <field name="upgsucal"/>
+                    <field name="user"/>
+                </xpath>
+
+            </field>
+        </record>
+        
+
+        <!-- <record model="ir.actions.act_window" id="super_calendar.super_calendar_action">
+            <field name="name">Super Calendar</field>
+            <field name="res_model">super.calendar</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form,kanban</field>
+            <field name="view_id" ref="super_calendar"/>
+            </field>
+        </record> -->
+
+
+
+    </data>
+</openerp>

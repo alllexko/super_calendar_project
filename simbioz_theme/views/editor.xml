@@ -1,0 +1,92 @@
+<?xml version="1.0"?>
+<!-- Part of the Simbioz Theme by Paul Marlow, 2016-2017. All rights reserved. -->
+<openerp>
+    <data>
+
+        <!-- Settings Form -->
+    	<record id="simbioz_theme.editor_form" model="ir.ui.view">
+            <field name="name">Theme Configuration</field>
+            <field name="model">simbioz_theme.editor</field>
+            <field name="arch" type="xml">
+                <form string="Theme Configuration" class="oe_form_configuration">
+                    <header>
+                        <button string="Save" type="object"
+                            name="execute" class="oe_highlight"/>
+                        or
+                        <button string="Cancel" type="object"
+                            name="cancel" class="oe_link"/>
+                        or
+                        <button name="reset_all_settings" 
+                            string="Reset all settings to defaults" 
+                            type="object"/>
+                    </header>
+                    <h2>Header settings</h2>
+                    <group>
+                        <group>
+                            <field name="default_header_background" widget="color"/>
+                            <field name="default_header_color" widget="color"/>
+                        </group>
+                        <group>
+                            <field name="default_header_active_background" widget="color"/>
+                            <field name="default_header_active_color" widget="color"/>
+                        </group>
+                    </group>
+                    <h2>Sidebar and form settings</h2>
+                    <group>
+                        <group>
+                            <field name="default_sidebar_background" widget="color"/>
+                            <field name="default_sidebar_color" widget="color"/>
+                            <field name="default_sidebar_section" widget="color"/>
+                        </group>
+                        <group>
+                            <field name="default_sidebar_active_background" widget="color"/>
+                            <field name="default_sidebar_active_color" widget="color"/>
+                        </group>
+                    </group>
+                    <h2>Links settings</h2>
+                    <group>
+                        <group>
+                            <field name="default_url_color" widget="color"/>
+                            <field name="default_url_hover" widget="color"/>
+                        </group>
+                        <group>
+                            <field name="default_button_background" widget="color"/>
+                            <field name="default_button_color" widget="color"/>
+                        </group>
+                    </group>
+                    <h2>Additional settings</h2>
+                    <group>
+                        <group>
+                            <field name="default_display_shortcuts"/>
+                        </group>
+                        <group>
+                            <field name="default_background" widget="image" 
+                                string="Custom login screen background" 
+                                class="oe_editor_background"/>
+                        </group>
+                    </group>
+                    <h2>Custom styles</h2>
+                    <div style="color:grey; padding-top: 10px; padding-bottom: 10px">
+                        Apply your own CSS styles to customize theme for your clients.
+                    </div>                    
+                    <field name="default_styles" widget="text"/>
+                    <br/><br/>
+                </form>
+            </field>
+        </record>
+
+        <!-- Settings Action -->
+        <record id="simbioz_theme.editor_action" model="ir.actions.act_window">
+            <field name="name">Theme</field>
+            <field name="res_model">simbioz_theme.editor</field>
+            <field name="view_id" ref="simbioz_theme.editor_form"/>
+            <field name="view_mode">form</field>
+            <field name="target">inline</field>
+        </record>
+
+        <!-- Editor Menu button -->
+        <menuitem id="simbioz_theme.editor_menu" name="Theme"
+            parent="base.menu_config" action="simbioz_theme.editor_action"/>
+
+    </data>
+</openerp>

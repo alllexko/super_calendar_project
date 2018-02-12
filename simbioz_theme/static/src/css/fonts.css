@@ -1,0 +1,29 @@
+/* Part of the Simbioz Theme by Paul Marlow, 2016-2017. All rights reserved. */
+/* Loading fonts */
+
+	@font-face {
+		font-family: 'Roboto';
+		font-style: light;
+		src: url('/simbioz_theme/static/src/font/roboto.ttf');
+	}
+
+/* Setting fonts and weight */
+
+	/* General font style */
+	body,
+	.openerp, .ui-widget,
+	.oe_slogan,
+	input, select, textarea {
+		font-family: 'Roboto', sans-serif!important;
+		font-weight: 400;
+	}
+
+	/* Bolder styles */
+	b, strong,
+	h1, h2, h3,
+	.oe_breadcrumb_title > *,
+	.oe_kanban_group_title {
+		font-weight: 500!important;
+	}
+
+/* End of fonts. */

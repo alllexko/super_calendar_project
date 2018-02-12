@@ -1,0 +1,413 @@
+// Part of the Simbioz Theme by Paul Marlow, 2016-2017. All rights reserved.
+// Flat design of header:
+
+	.oe_view_manager_header,
+	.oe_searchview_drawer_container,
+	.oe_form header {
+		backround-image: none!important;
+		background: #ededed!important;
+	}
+
+	.oe_form  {
+		border-bottom: none!important;
+	}
+
+	.openerp .oe_form header button.oe_button {
+		margin-bottom: 5px!important;
+		margin-top: 5px!important;
+		height: 28px!important;
+	}
+
+	.oe_form .oe_view_manager_header {
+		display: none;
+		background: white!important;
+		padding: 10px 0!important;
+	}
+
+	.oe_form .oe_view_manager[data-view-type="kanban"] .oe_view_manager_header {
+		padding-bottom: 5px!important;
+		background: white!important;
+		display: table!important;
+	}
+
+// Switches:
+
+	@pager-width: 32px;
+	@pager-height: 32px;
+
+	.oe_view_manager_header button:not(.oe_searchview_search) {
+		#mixin-material-button;
+		height: @pager-height!important;
+		background-color: inherit;
+	}
+
+	.openerp .oe_application .oe_view_manager_switch,
+	.openerp .oe_application .oe_pager_group {
+
+		height: @pager-width!important;
+		border: none!important;
+
+		> li.oe_e,
+		> li {
+			#mixin-material-button;
+			margin: 0 2px!important;
+			height: inherit!important;
+			width: @pager-width!important;
+			padding: 0!important;
+		}
+
+		> li > a {
+			display: block;
+			line-height: @pager-height - 5!important;
+			color: inherit!important;
+			width: @pager-width;
+			height: @pager-height;
+			padding: 0!important;
+		}
+
+		> li > a.oe_i {
+			padding: 2px 10px !important;
+		}
+	}
+
+	.oe_pager_group > li > a {
+		padding: 3px 10px!important;
+	}
+
+	.oe_pager_value span {
+		line-height: 35px;
+		margin-right: 5px;
+	}
+
+// Searchview:
+
+	.oe_searchview {
+		
+		#mixin-material-shadow!important;
+		border-radius: 2px!important;
+		border: none!important;
+		padding: 5px!important;
+		width: 100%;
+
+		.oe_searchview_search,
+		.oe_searchview_clear, 
+		.oe_searchview_unfold_drawer {
+			padding: 5px!important;
+			height: 100%!important;
+		}
+
+		.oe_searchview_clear {
+			width: 39px!important;
+		}
+
+		.oe_searchview_facets {
+			padding-left: 10px!important;
+			min-height: 31px!important;
+		}
+
+		.oe_searchview_input {
+			margin-top: 7px!important;
+		}
+
+		// Facet design:
+		.oe_searchview_facet {
+
+			#mixin-material-button;
+			margin: 3px 1px!important;
+
+			.oe_facet_values {
+				border-radius: 0px!important;
+				font-size: 12px!important;
+				padding: 4px!important;
+			}
+
+			.oe_facet_remove {
+				top: 7px!important;
+			}
+
+			.oe_facet_category {
+				margin-top: 4px!important;
+			}
+		}
+
+		// Advanced search icon:
+		.oe_searchview_unfold_drawer {
+			width: 32px!important;
+		    min-height: 30px!important;
+		    top: 1px!important;
+		    background: url(/simbioz_theme/static/src/img/search.png) center center no-repeat;
+		    &:before {
+		    	display: none!important;
+		    }
+		}
+	}
+
+	.oe_searchview_drawer_container {
+
+		transition: all 0.15s!important;
+		border-top: none!important;
+		width: 100%!important;
+
+		.oe_searchview_section {
+
+			li {
+				line-height: 24px!important;
+				font-weight: inherit!important;
+				padding: 2px!important;
+			}
+
+			ul {
+				margin: 0!important
+			}
+		}
+	}
+
+	// Minor fixes:
+	.openerp .oe_view_manager_current > .oe_view_manager_header .oe_header_row_top td {
+		padding-bottom: 0px;
+	}
+
+	.openerp .oe_view_manager_current > .oe_view_manager_header span.oe_breadcrumb_item {
+		padding-top: 3px;
+	}
+
+	.openerp .oe_view_manager table.oe_view_manager_header h2 {
+		line-height: 20px;
+	}
+
+	// Popup search:
+	.oe_popup_search {
+
+		background: #ededed!important;
+		
+		.oe_searchview {
+			margin: 0.5%;
+			width: 99%;
+		}
+
+		.oe_searchview_drawer {
+			border-bottom: none!important;
+		}
+	}
+
+	.oe_popup_list_pager {
+		background: #ededed!important;
+	}
+
+	.oe_popup_list {
+		border-top: 1px solid #ddd;
+	}
+
+// Dropdown:
+	
+	.oe_dropdown_menu {
+		
+		background-color: inherit;
+		border: none!important;
+		z-index: 10!important;
+		border-radius: 2px;
+
+		> li {
+			padding: 0!important;
+		}
+
+		> li > a,
+		> li > .oe_hidden_input_file  {
+			padding: 10px 15px;
+		}
+
+		.oe_sidebar_add_attachment,
+		.oe_form_binary_file {
+			cursor: pointer!important;
+			background: none!important;
+			background-image: none!important;
+			margin-bottom: 3px !important;
+			height: 35px!important;
+		}
+
+		.oe_form_binary_file {
+			height: 35px!important;
+		}
+	}
+
+// Debug button:
+
+	.oe_debug_view {
+		#mixin-material-button;
+		background-color: inherit!important;
+		background-image: url('/simbioz_theme/static/src/img/bug.png')!important;
+		background-position: center center!important;
+		background-repeat: no-repeat!important;
+		margin-right: 5px!important;
+		height: 25px!important;
+		width: 31px!important;
+		font-size: 0;
+		* {
+			font-size: 13px!important;
+		}
+	}
+
+// Non-header backgrounds:
+
+	.oe_view_manager_body,
+	.oe_view_manager_wrapper,
+	.oe_view_manger {
+		background: @bg-color!important;
+	}
+
+	.oe_view_manager[data-view-type="form"]:not(.oe_view_manager_inline) {
+		background: white!important;
+		.oe_view_manager_wrapper,
+		.oe_view_manager_body {
+			background: white!important;
+		}
+	}
+
+	.oe_view_manager_inline {
+		header {
+			padding: 5px!important;
+		}
+	}
+
+// Nocontent:
+
+	.oe_view_nocontent {
+
+		text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.25);
+		color: white!important;
+		z-index: 10;
+
+		.oe_view_nocontent_bg {
+			background: none!important;
+		}
+
+		.oe_view_nocontent_create {
+			color: white!important;
+			&:before {
+				background: transparent url(/simbioz_theme/static/src/img/view_empty_arrow.png)!important;
+			}
+		}
+	}
+
+// Better filters:
+
+	// Advanced filters:
+	.oe_searchview_drawer {
+
+		// Main panel is always visible:
+		display: block!important;
+
+		// Hiding on form:
+		.oe_view_manager[data-view-type="form"] & {
+			display: none!important;
+		}
+
+		// Custom filters background fix:
+		.oe_searchview_custom_private {
+			background: none!important;
+		}
+
+		.oe_searchview_custom_list li:not(:hover) .oe_searchview_custom_delete {
+			display: none!important;
+		}
+
+		// Left panel (filters):
+		.col-md-7 {
+
+			width: 100%!important;
+			
+			li {
+				#mixin-material-button;
+				margin-bottom: 3px;
+				margin-top: 3px;
+			}
+			
+			dt {
+				margin-top: 6px;
+			}
+		}
+
+		// Right panel (advanced filters):
+		.col-md-5 {
+
+			#mixin-material-shadow;
+			position: absolute;
+			background: #ededed;
+			border-radius: 3px;
+			padding: 10px!important;
+			right: 10px;
+			z-index: 10;
+
+			top: -100%;
+			transition: top 0.5s;
+
+			> div > h4 {
+				#mixin-material-button;
+				display: block!important;
+				padding: 8px;
+				margin: 5px 3px;
+			}
+
+			.oe_searchview_advanced select {
+				width: 125px!important;
+			}
+
+			&.oe_visible {
+				top: 0;
+			}
+
+			.oe_searchview_savefilter {
+
+				> .oe_form {
+
+					margin-left: 0px!important;
+					padding: 3px 8px!important; 
+
+					> .oe_form_required > input {
+						border-radius: 0!important;
+						outline: none!important;
+						width: 100%;
+					}
+
+					> p:nth-child(2) {
+						padding-bottom: 8px;
+					}
+
+				}
+
+				input[type="checkbox"] {
+					#mixin-material-checkbox;
+					position: relative;
+					margin-left: 0!important;
+					top: 3px;
+				}
+
+			}
+
+			button:not(.oe_add_condition) {
+				#mixin-material-button;
+				background: none!important;
+			}
+
+		}
+
+	}
+
+// Popup pager design:
+.oe_popup_list_pager {
+
+	margin-right: 10px;
+	margin-bottom: 5px;
+
+	.oe_pager_group, li {
+		border: none!important;
+	}
+
+	a {
+		#mixin-material-button;
+		margin-left: 5px!important;
+	}
+
+}
+
+// End of header.

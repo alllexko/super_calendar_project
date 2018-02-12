@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+
+        <record id="button_task_work_summary" model="ir.ui.view">
+            <field name="name">button.task.work.summary</field>
+            <field name="model">project.task</field>
+            <field name="inherit_id" ref="project.view_task_form2"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='work_ids']" position="before">
+                    <group col="2" colspan="2">
+                        <field name="task_work_set_id"/>
+                        <button name="taskworkset" type="object" string="Task Work Set" class="oe_highlight" colspan="5"/>
+                    </group>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="view_task_work_summary" model="ir.ui.view">
+            <field name="name">View Task Work Summary</field>
+            <field name="model">taskwork.summary</field>
+            <field name="arch" type="xml">
+                <form string="">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                        </group>
+                        <field name="task_work_set_ids">
+                            <tree>
+                                <field name="name"/>
+                            </tree>
+                        </field>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <record id="tree_task_work_summary" model="ir.ui.view">
+            <field name="name">Tree Task Work Summary</field>
+            <field name="model">taskwork.summary</field>
+            <field name="arch" type="xml">
+                <tree string="">
+                    <field name="name"/>
+                </tree>
+            </field>
+        </record>
+
+        <record id="action_task_work_summary" model="ir.actions.act_window">
+            <field name="name">Action Task Work Summary</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">taskwork.summary</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+
+        <menuitem id="task_work_summary_root" name="Task Work Summery" parent="base.menu_definitions"
+                  action="action_task_work_summary" sequence=""/>
+    </data>
+</openerp>

@@ -1,0 +1,378 @@
+// Part of the Simbioz Theme by Paul Marlow, 2016-2017. All rights reserved.
+
+// Markup and fields:
+
+	.openerp .oe_formview {
+
+		background: none!important;
+
+		.oe_form_sheet {
+			border: none!important;
+			box-shadow: none!important;
+			max-width: 100%!important;
+			width: 100%!important;
+		}
+
+		.oe_form_nosheet {
+			background: white!important;
+			margin: 0!important;
+			padding: 15px;
+		}
+
+		.ui-tabs {
+			background: inherit!important;
+		}
+
+		// Fields:
+		.oe_form_field {
+			margin-bottom: 5px!important;
+			padding-top: 0!important;
+		}
+
+		.oe_form_field_text {
+			margin-top: 10px!important;
+		}
+
+		.oe_horizontal_separator {
+			padding-right: 5px!important;
+		}
+
+		button, .oe_button {
+			#mixin-material-button;
+			height: 40px!important;
+			padding: 0 5px;
+		}
+
+		button.oe_link, .oe_button.oe_link {
+			-webkit-box-shadow: none!important;
+			-moz-box-shadow: none!important;
+			-ms-box-shadow: none!important;
+			box-shadow: none!important;
+			display: inline!important;
+			height: 1.25em!important;
+		}
+
+		input, textarea, select {
+			#mixin-material-input;
+			width: 100%;
+		}
+
+		.oe_form_field:not(.oe_tags) textarea {
+			border: 1px solid #ddd!important;
+			border-radius: 2px!important;
+		}
+
+		select {
+			-webkit-appearance: menulist-button!important;
+			-moz-appearance: menulist-button!important;
+			-ms-appearance: menulist-button!important;
+			appearance: menulist-button!important;
+		}
+
+		input[type="checkbox"] {
+			#mixin-material-checkbox;
+		}
+
+		input[type="radio"] {
+			#mixin-material-radio;
+		}
+
+		.oe_form_group_cell_label + .oe_form_group_cell {
+			padding: 20px 5px 10px 5px!important;
+		}
+
+		.oe_datepicker_root span {
+			width: 100%;
+			display: inline-block;
+		}
+
+		.oe_datepicker_root .oe_datepicker_master,
+		.oe_form_field_float input {
+			width: 100%!important;
+		}
+
+		.oe_form_field:not(.oe_tags, .oe_form_field_one2many) {
+			min-height: 25px!important;
+			font-size: 1.1em!important;
+		}
+
+		.oe_stat_button {
+			height: 45px!important;
+			margin: 5px!important;
+		}
+
+		.oe_button_box {
+			width: 450px!important;
+		}
+
+		.oe_form_sheet {
+			#mixin-material-shadow;
+		}
+
+		.oe_form_field_boolean + .oe_form_label_help {
+			line-height: 1.85em!important;
+			padding-left: 0.25em;
+		}
+
+		// Headers:
+		header,
+		.oe_form_sheetbg {
+			border: none!important;
+			button:not(.oe_stat_button),
+			.oe_button {
+				background-color: inherit;
+			}
+		}
+
+		.oe_view_manager_body {
+			display: block!important;
+		}
+
+		.oe_radio_input {
+			width: auto!important;
+			height: 24px!important;
+			margin: 0!important;
+		}
+
+		// Labels design:
+		.oe_form_group:not(.oe_subtotal_footer) {
+			> tbody > tr {
+				> .oe_form_group_cell_label {
+					position: absolute!important;
+					padding-left: 0!important;
+					display: block;
+					border-right: none!important;
+					margin-left: 6px!important;
+					font-weight: 600!important;
+					max-width: 400px!important;
+					font-size: 0.85em;
+				}
+
+				> .oe_form_group_cell_label + .oe_form_group_cell {
+					display: inline-block;
+					width: 100% !important;
+				}
+			}
+		}
+
+		.oe_form_group.oe_subtotal_footer {
+			> tbody > tr {
+				.oe_subtotal_footer_separator {
+					border-top: none!important;
+				}
+			}
+		}
+
+		// List button header fix:
+		.oe_list_content thead tr:first-child:not(.oe_list_header_columns) {
+			display: none!important;
+		}
+
+		// Invalid delete button design fix:/
+		.oe_list_content button[name="delete"] {
+			-webkit-box-shadow: none!important;
+			-moz-box-shadow: none!important;
+			box-shadow: none!important;
+			box-shadow: none!important;
+		}
+
+		// Binary field fix:
+		@binary-size: 25px;
+		.oe_form_field_binary {
+
+			td:first-child {
+				width: 100%!important;
+				input {
+					#mixin-material-input!important;
+					height: @binary-size!important;
+					width: 99%!important;
+				}
+			}
+
+			.oe_hidden_input_file {
+				overflow: visible!important;
+			}
+
+			button {
+				height: @binary-size!important;
+			}
+
+			.oe_form_binary_file {
+				cursor: pointer!important;
+			}
+
+		}
+
+
+		// Progress bar:
+		.oe_form_field_progressbar {
+
+			padding-bottom: 0!important;
+			margin-top: 3px!important;
+			border: none!important;
+
+			.ui-progressbar-value {
+				#mixin-material-shadow!important;
+				background-image: none!important;
+				border-radius: 0!important;
+				border: none!important;
+				height: 20px!important;
+			}
+
+			span {
+				margin-left: 5px!important;
+			}
+
+		}
+
+	}
+
+	// Non-inline editing fix:
+	.openerp .oe_formview:not(.oe_form_editable) { 
+
+		.oe_form_field_selection {
+			width: 100%!important;
+		}
+
+	}
+
+// Notebook tabs:
+	
+	.oe_notebook {
+
+		> li > a,
+		> li {
+			transition: all 0.25s;
+			background-color: none!important;
+			background: none!important;
+			border: none!important;
+		}
+	}
+
+// Status field:
+
+	.oe_form_field_status {
+
+		height: 40px!important;
+
+		> li, 
+		> li > .arrow,
+		> li > .label {
+			height: inherit!important;
+		}
+
+		> li > .arrow {
+			transform: scaleX(0.5);
+			width: 22px!important;
+		}
+
+		> li > .arrow > span {
+			margin-left: -14px!important;
+			margin-top:5px!important;
+			width: 30px!important;
+			height: 30px!important;
+		}
+
+		> li > .label {
+			padding: 5px 0px 5px 15px !important;
+			vertical-align: middle!important;
+			line-height: 32px!important;
+		}
+
+		> li,
+		> li > .arrow > span {
+			background: #ededed!important;
+		}
+
+		> li:first-child > .label {
+			padding: 5px 5px 5px 10px!important;
+			border-left: none!important;
+		}
+
+		> li:last-child > .label {
+			padding: 5px 5px 5px 15px!important;
+			min-width: 60px !important;
+		}
+
+		.oe_dropdown_menu.oe_opened {
+			li {
+				background: #ededed!important;
+				min-width: 100px!important;
+				span {
+					width: 100%!important;
+					border: none!important;
+					border-radius: 0!important;
+				}
+			}
+		}
+	}
+
+// Backgrounds:
+	
+	.oe_form_sheetbg {
+		background: @bg-color!important;
+		padding: 0!important;
+	}
+
+// Jumping button fix 
+	
+	.oe_form_buttons .oe_button {
+		width: auto!important;
+		box-sizing: border-box!important;
+	}
+
+
+// Email field fix:
+	
+	.openerp .oe_form .oe_form_field_email_internal input {
+		position:relative!important;
+		width: 100% !important;
+		display: block !important;
+		right: 0!important;
+		left: 0!important;
+	}
+
+
+// Pager fix:
+
+	/*[data-view-type="form"] .oe_header_row .oe_list_pager {
+		display: none!important;
+	}*/
+
+// Config page settings:
+
+	.oe_form_configuration > header {
+		margin-bottom: 10px!important;
+	}
+
+// Projects form title size to width:
+
+	.oe_form_sheet > h1 {
+		white-space: nowrap;
+		overflow: hidden;
+	}
+
+	.oe_form_sheet > h1 > .oe_form_field_char {
+		width: 100%!important;
+	}
+
+	.oe_form_sheet > h1 > .oe_form_field_char:first-child {
+		width: auto !important;
+	}
+
+	.oe_form_sheet > h1 > .oe_form_field_char:last-child {
+		width: 100%!important;
+	} /* Wow! Dirty hacks! */
+
+// Project WBS fix:
+
+	.references {
+		width: 100%!important;
+		margin: 0!important;
+		table {
+			table-layout: fixed!important;
+			tr {
+				display: table-cell!important;
+			}
+		}
+	}

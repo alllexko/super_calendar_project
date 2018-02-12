@@ -1,0 +1,115 @@
+// Part of the Simbioz Theme by Paul Marlow, 2016-2017. All rights reserved.
+.modal {
+	overflow: hidden!important;
+	padding: 0!important;
+}
+
+// General modal design:
+.modal-dialog {
+
+	width: 100vw!important;
+	height: 100vh!important;
+	margin: 0!important;
+	padding: 5em!important;
+
+	.modal-content {
+
+		#mixin-material-shadow!important;
+		border-radius: 0!important;
+		max-height: 100%!important;
+		border: none!important;
+		overflow: hidden;
+
+		.modal-header,
+		.modal-footer {
+			min-height: 40px!important;
+			padding: 10px!important;
+			border: none!important;
+		}
+
+		.modal-body {
+			width: 100%!important;
+			max-height: calc(~'100vh - 18em')!important;
+			//background: #ededed!important;
+			.oe_view_manager_header td[colspan="4"] {
+				background: white!important;
+				padding: 0 18px!important;
+			}
+		}
+
+		.oe_popup_search:empty {
+			display: none!important;
+		}
+
+		.oe_button,
+		.oe_form_button_cancel {
+			#mixin-material-button;
+			padding: 5px!important;
+			height: 25px!important;
+			background: inherit;
+		}
+
+		.modal-footer {
+			table tr {
+				
+				display: table-cell!important;
+
+				td div {
+					font-size: 0!important;
+					* {
+						font-size: 13px!important;
+					}
+				}
+
+				.oe_button {
+					padding: 0px 5px!important;
+					font-size: 0!important;
+					width: 25px!important;
+					height: 20px!important;
+				}
+			}
+		}
+
+		.modal-header button.close {
+			-o-box-shadow: none!important;
+			-moz-box-shadow: none!important;
+			-webkit-box-shadow: none!important;
+			box-shadow: none!important;
+		}
+
+		.oe_chatter {
+			display: none!important;
+		}
+
+		.oe_debug_view {
+			margin-top: 20px!important;
+		}
+
+	}
+}
+
+// Modal popup design:
+.oe_image_preview {
+	width: auto;
+	height: auto;
+	max-width: 95%;
+	max-height: 95%;
+}
+
+.oe_image_preview_modal {
+	
+	text-align: center;
+	
+	.modal-body,
+	.modal-content,
+	.modal-dialog {
+		display: inline-block;
+		width: auto;
+	}
+
+	.modal-body {
+		padding: 0!important;
+		overflow: hidden;
+	}
+
+}

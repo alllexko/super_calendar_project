@@ -1,0 +1,18 @@
+/* Part of the Simbioz Theme by Paul Marlow, 2016-2017. All rights reserved. */
+body, #oe_main_menu_placeholder {
+	-webkit-transition: all 0.75s;
+	-moz-transition: all 0.75s;
+	-ms-transition: all 0.75s;
+	-o-transition: all 0.75s;
+	transition: all 0.75s;
+	opacity: 0;
+}
+
+.openerp_webclient_container {
+	overflow: hidden!important;
+	width: 100%;
+}
+
+.oe_im {
+	width: 350px!important;
+}

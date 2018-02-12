@@ -1,0 +1,58 @@
+// Part of the Simbioz Theme by Paul Marlow, 2016-2017. All rights reserved. 
+@less-path: "/simbioz_theme/static/src/less";
+@import "@{less-path}/mixins.less";
+@import "@{less-path}/loader.less";
+// This file is not loaded by main.less.
+
+.oe_single_form_container {
+
+	#mixin-material-shadow!important;
+	position: relative!important;
+	left: inherit!important;
+	max-width: 90vw!important;
+	margin-left: auto!important;
+	margin-right: auto!important;
+	margin-top: -165px!important;
+	border: none!important;
+
+	input, select {
+		#mixin-material-input;
+		box-shadow: inset 0px 0px 1px rgba(0, 0, 0, 0.15)!important;
+		border-right: 1px solid #ddd!important;
+		border-left: 1px solid #ddd!important;
+		border-top: 1px solid #ddd!important;
+		font-size: 14px;
+	}
+
+	select {
+		cursor: pointer;
+	}
+
+	.btn {
+		#mixin-material-button;
+		height: 40px!important;
+		padding: 10px;
+		&[type="submit"] {
+			width: 60%!important;
+		}
+	}
+
+	.oe_login_buttons {
+		padding: 5px;
+	}
+
+	.btn-db {
+		font-size: 20px;
+		position: absolute;
+		right: 10px;
+		&, &:hover {
+			box-shadow: none!important;
+		}
+	}
+
+	.oe_single_form_footer, hr, label[for="db"] {
+		display: none!important;
+	}
+
+}
+// End of login.

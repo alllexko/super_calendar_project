@@ -1,0 +1,157 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+
+        <!--<record id="view_calendar_super_form" model="ir.ui.view">-->
+            <!--<field name="model">super.calendar</field>-->
+            <!--<field name="inherit_id" ref="super_calendar.super_calendar_form"/>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<field name="duration" position="after">-->
+                    <!--<field name="week_number"/>-->
+                    <!--<field name="weekday"/>-->
+                <!--</field>-->
+            <!--</field>-->
+        <!--</record>-->
+
+        <!--<record id="view_calendar_super_search" model="ir.ui.view">-->
+            <!--<field name="model">super.calendar</field>-->
+            <!--<field name="inherit_id" ref="super_calendar.super_calendar_search"/>-->
+            <!--<field name="arch" type="xml">-->
+                <!--<filter string="Year" position="after">-->
+                    <!--<filter string="Week" icon="terp-locked" domain="[]" context="{'group_by':'week_number'}"/>-->
+                    <!--<filter string="Week" icon="terp-locked" domain="[]" context="{'group_by':'week_number'}"/>-->
+                    <!--<filter string="Location" icon="terp-locked" domain="[]" context="{'group_by':'location'}"/>-->
+                <!--</filter>-->
+            <!--</field>-->
+        <!--</record>-->
+        <!---->
+        <record id="view_calendar_super_kanban" model="ir.ui.view">
+            <field name="name">Super Calendar</field>
+            <field name="model">super.calendar</field>
+            <field name="arch" type="xml">
+                <kanban class="oe_background_grey" default_group_by="date_start">
+                    <field name="color"/>
+                    <field name="name" string="Subject"/>
+                    <field name="date_start" string="Date"/>
+                    <field name="user_id"/>
+                    <field name="duration"/>
+                    <templates>
+                        <t t-name="kanban-box">
+                            <div t-attf-class="oe_kanban_color_#{kanban_getcolor(record.color.raw_value)} oe_kanban_card oe_kanban_project oe_kanban_global_click">
+                                <div class="oe_dropdown_kanban">
+                                    <div class="oe_dropdown_toggle">
+                                        <span class="oe_e">#</span>
+                                        <ul class="oe_dropdown_menu">
+                                            <li>
+                                                <a type="delete">Delete</a>
+                                            </li>
+                                            <li>
+                                                <ul class="oe_kanban_colorpicker"
+                                                    data-field="color"/>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                    <div class="oe_clear"></div>
+                                </div>
+                                <div t-attf-class="oe_kanban_content">
+                                    <field name="name"/>
+                                    <br/>
+                                    <field name="date_start"/>
+                                    <br/>
+                                    <field name="duration"/>
+                                </div>
+                            </div>
+                        </t>
+                    </templates>
+                </kanban>
+            </field>
+        </record>
+
+        <record id="view_calendar_super_gantt" model="ir.ui.view">
+            <field name="name">super.calendar.gantt</field>
+            <field name="model">super.calendar</field>
+            <field name="arch" type="xml">
+                <gantt string="Super Calendar Gantt" color="duration"
+                date_start = "date_start" date_delay="duration">
+                    <field name="name"/>
+                </gantt>
+            </field>
+        </record>
+
+        <record id="view_calendar_super_graph" model="ir.ui.view">
+            <field name="name">super.calendar.graph</field>
+            <field name="model">super.calendar</field>
+            <field name="arch" type="xml">
+                <graph string="Super Calendar Graph">
+                    <field name="name" type="pivot"/>
+                </graph>
+            </field>
+        </record>
+
+        <record id="super_calendar.super_calendar_action" model="ir.actions.act_window">
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">calendar,tree,form,kanban,gantt,graph</field>
+        </record>
+
+        <record id="action_view_super_calendar_kanban" model="ir.actions.act_window.view">
+            <field name="act_window_id" ref="super_calendar.super_calendar_action"/>
+            <field name="sequence" eval="4"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="view_calendar_super_kanban"/>
+        </record>
+        <record id="action_view_super_calendar_gantt" model="ir.actions.act_window.view">
+            <field name="act_window_id" ref="super_calendar.super_calendar_action"/>
+            <field name="sequence" eval="5"/>
+            <field name="view_mode">gantt</field>
+            <field name="view_id" ref="view_calendar_super_gantt"/>
+        </record>
+        <record id="action_view_super_calendar_graph" model="ir.actions.act_window.view">
+            <field name="act_window_id" ref="super_calendar.super_calendar_action"/>
+            <field name="sequence" eval="6"/>
+            <field name="view_mode">graph</field>
+            <field name="view_id" ref="view_calendar_super_graph"/>
+        </record>
+
+    </data>
+</openerp>
+
+
+
+
+
+
+
+
+
+<!-- <?xml version="1.0"?>
+<openerp>
+    <data>
+    
+
+    <record model="ir.ui.view" id="super_calendar_kanban_view">
+        <field name="name">super.calendar.kanban.view</field>
+        <field name="model">super.calendar</field>
+        <field name="arch" type="xml">
+            <kanban default_group_by="res_id">
+                <field name="color"/>
+                <templates>
+                    <t t-name="kanban-box">
+
+                    </t>
+                </templates>
+            </kanban>
+        </field>
+    </record>
+
+    <record id="super_calendar.super_calendar_action" model="ir.actions.act_window">
+            <field name="view_mode">kanban,calendar,tree,form,gantt</field>
+        </record>
+
+        <record id="action_view_super_calendar_kanban" model="ir.actions.act_window.view">
+            <field name="act_window_id" ref="super_calendar.super_calendar_action"/>
+            <field name="sequence" eval="1"/>
+            <field name="view_mode">kanban</field>
+            <field name="view_id" ref="super_calendar_kanban_view"/>
+        </record>
+    </data>
+</openerp> -->

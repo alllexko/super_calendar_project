@@ -1,0 +1,190 @@
+// Part of the Simbioz Theme by Paul Marlow, 2016-2017. All rights reserved.
+.oe_view_manager_view_calendar {
+
+	background: #ccc!important;
+	padding: 15px!important;
+
+	.oe_calendar_table {
+		margin: 0!important;
+	}
+
+	.fc-button {
+		#mixin-material-button;
+		margin-right: 5px!important;
+		border-radius: 0!important;
+		padding: 7px;
+		height: 35px;
+	}
+
+	.oe_calendar_responsible,
+	.oe_calendar_sidebar .oe_form_field {
+		#mixin-material-button;
+		dislay: block;
+		background: white;
+		border-radius: 0px!important;
+		width: 100%!important;
+		margin-bottom: 10px;
+		padding: 7px;
+		.oe_remove_follower {
+			right: 25px!important;
+		}
+	}
+
+	.oe_calendar_sidebar .oe_form_field input {
+		width: 185px!important;
+	}
+
+	.fc-header {
+		padding: 10px!important;
+	}
+
+	.fc-header-center {
+		text-align: center;
+		color: white;
+		text-shadow: 1px 1px 2px black;
+	}
+
+	.fc-header-right {
+		text-align: right;
+		.fc-button {
+			margin-right: 0px!important;
+			margin-left: 5px!important;
+		}
+	}
+
+	.fc-content {
+
+		#mixin-material-shadow;
+
+		td, th {
+			padding: 7.5px;
+		}
+
+		td {
+			background: white;
+		}
+
+		th {
+			border: none!important;
+		}
+
+	}
+
+	.oe_calendar_sidebar_container {
+		
+		padding-right: 0!important;
+		padding-top: 0!important;
+
+		.ui-datepicker {
+
+			#mixin-material-button;
+			border-radius: 0!important;
+			border: none!important;
+
+			a {
+				background-image: none!important;
+				background: none!important;
+			}
+
+		}
+	}
+
+}
+
+// Datepicker styles:
+.ui-datepicker.ui-widget-content {
+
+	#mixin-material-shadow(25px)!important;
+	padding: 10px!important;
+	padding-bottom: 5px!important;
+	border: none!important;
+	width: auto!important;
+
+	.ui-datepicker-header {
+
+		margin-bottom: 10px!important;
+
+		select {
+			#mixin-no-appearance!important;
+			text-align: center!important;
+			font-weight: bold!important;
+			background: none!important;
+			text-transform: capitalize;
+			cursor: pointer!important;
+			border: none!important;
+			color: black!important;
+		}
+
+		select:first-child {
+			text-indent: 60px!important;
+		}
+
+		.ui-corner-all {
+			margin-top: 3px!important;
+			cursor: pointer;
+		}
+
+	}
+
+	.ui-datepicker-calendar {
+
+		td, th {
+			padding: 2.5px!important;
+		}
+
+		td:first-child, th:first-child {
+			// Get rid of annyoing week number.
+			display: none!important;
+		}
+
+	}
+
+	.ui-datepicker-buttonpane {
+
+		border: none!important;
+		margin: 0!important;
+
+		button {
+			background: white!important;
+			border: none;
+			box-shadow: none;
+			padding: 2.5px 2.5px;
+		}
+
+	}
+
+	.ui-state-default {
+		box-shadow: none!important;
+		padding: 7.5px!important;
+	}
+
+	.ui-state-active:not(.ui-slider-handle),
+	.ui-state-hover:not(.ui-slider-handle) {
+		background-image: none!important;
+		border-radius: 50%!important;
+	}
+
+	.ui-slider {
+		margin-top:4px;
+	}
+
+	.ui-slider-handle {
+		#mixin-material-button!important;
+		background: white!important;
+	}
+
+	.ui_tpicker_minute_label {
+		margin-top: 15px!important;	
+	}
+
+}
+
+
+// Firefox, really:
+@-moz-document url-prefix() { 
+
+	.ui-datepicker.ui-widget-content .ui-datepicker-header select:first-child {
+		text-indent: 0px!important;
+	}
+
+}

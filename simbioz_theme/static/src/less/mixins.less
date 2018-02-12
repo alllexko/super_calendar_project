@@ -1,0 +1,115 @@
+// General LESS mixins for material design:
+#mixin-no-appearance {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	-ms-appearance: none;
+	appearance: none;
+}
+
+#mixin-material-shadow(@radius: 3px) {
+	-ms-box-shadow: 0 1px @radius rgba(0,0,0,0.12), 
+		0 1px (@radius - 1) rgba(0,0,0,0.24);
+	-moz-box-shadow: 0 1px @radius rgba(0,0,0,0.12), 
+		0 1px (@radius - 1) rgba(0,0,0,0.24);
+	-webkit-box-shadow: 0 1px @radius rgba(0,0,0,0.12), 
+		0 1px (@radius - 1) rgba(0,0,0,0.24);
+	box-shadow: 0 1px @radius rgba(0,0,0,0.12), 
+		0 1px (@radius - 1) rgba(0,0,0,0.24);
+}
+
+#mixin-material-button {
+	#mixin-material-shadow!important;
+	#mixin-no-appearance!important;
+	
+	display: inline-block;
+	background-image: none!important;
+	text-decoration: none!important;
+	border-radius: 2px!important;
+	border: none!important;
+	transition: all 0.25s;
+	cursor: pointer;
+
+	&:not([disabled]) {
+		&:hover, &:active {
+			#mixin-material-shadow(10px)!important;
+		}
+	}
+}
+
+#mixin-material-input {
+	#mixin-no-appearance!important;
+
+	outline: none!important;
+	border-radius: 0!important;
+	border: none!important;
+	border-bottom: thin solid #ddd!important;
+	box-shadow: none!important;
+	transition: all 0.25s;
+}
+
+#mixin-material-checkbox {
+	#mixin-no-appearance!important;
+	transition: all 0.25s!important;
+	border-radius: 0!important;
+
+	display: inline-block;
+	background: none!important;
+	font-size: 13px;
+	height: 18px;
+	width: 18px;
+
+	border: 1px solid #ddd!important;
+	background-color: inherit!important;
+	background: none!important;
+	cursor: pointer!important;
+
+	&:checked {
+		border-left-color: rgba(0, 0, 0, 0)!important;
+		border-top-color: rgba(0, 0, 0, 0)!important;
+		border-bottom-color: green!important;
+		border-right-color: green!important;
+		transform: rotate(45deg) scaleX(0.7) translate(-2px, -3px);
+	}
+}
+
+#mixin-material-radio {
+	#mixin-no-appearance!important;
+	border: 1px solid #ddd!important;
+	border-radius: 50%!important;
+	cursor: pointer!important;
+	padding: 0!important;
+	height: 18px;
+	width: 18px;
+
+	&:after {
+		display: block;
+		position: absolute;
+		border-radius: inherit;
+		transition: background 0.25s;
+		background: #aaa;
+		width: 10px;
+		height: 10px;
+		margin-top: 3px;
+		margin-left: 3px;
+		background: inherit;
+		content: "";
+	}
+
+	&:checked {
+		border-color: green!important;
+	}
+
+	&:checked:after {
+		background: green;
+	}
+	
+}
+
+#mixin-material-select {
+	#mixin-material-input;
+	cursor: pointer;
+	background-image: url('/simbioz_theme/static/src/img/down.png')!important;
+	background-position: right center!important;
+	background-repeat: no-repeat!important;
+	background-color: white!important;
+}

@@ -1,0 +1,114 @@
+// Part of the Simbioz Theme by Paul Marlow, 2016-2017. All rights reserved.	
+@cell-height: 45px;
+// Generic list:
+
+	.oe_list_content {
+
+		tr {
+				
+			> td, 
+			> th {
+				height: @cell-height!important;
+				padding: 0 10px!important;
+				vertical-align: middle;
+			}
+
+			&:nth-child(even) > td,
+			&:nth-child(even) > th {
+				background: white;
+			}
+
+			&:nth-child(odd)  > td,
+			&:nth-child(odd) > th {
+				background:#eee;
+			}
+
+		}
+
+		td.oe_number {
+			text-align: left!important;
+		}
+	}
+
+// Tree view:
+
+	.oe_tree_table {
+
+		tr {
+			> td,
+			> th {
+				padding-bottom: 10px!important;
+				padding-top: 10px!important;
+			}
+
+			> td:first-child span {
+				pointer-events: none;
+			}
+		}
+	}
+
+// List view fields and heads:
+
+	.oe_tree_table,
+	.oe_list_content {
+
+		th {
+			font-size: 0.85em!important;
+		}
+
+		input, textarea, select {
+			#mixin-material-input;
+		}
+
+		select {
+			#mixin-material-select;
+		}
+
+		input[type="checkbox"] {
+			#mixin-material-checkbox;
+		}
+
+		input[type="radio"] {
+			#mixin-material-radio;
+		}
+	}
+
+
+// Inline editing fix:
+
+	.oe_list_editable {
+
+		.oe_form_field_text > textarea {
+			height: @cell-height!important;
+			overflow-x: auto!important;
+			overflow-y: auto!important;
+			resize: none!important;
+		}
+
+		.oe_input_icon {
+			position: absolute;
+			top: 50%!important;
+			margin-top: -8px!important;
+		}
+
+		.oe_m2o_cm_button {
+			position: absolute;
+			top: 50%!important;
+			margin-top: -15px;
+			z-index: 2;
+			right: 0;
+		}
+
+		.oe_form_field_with_button .oe_m2o_drop_down_button {
+			position: absolute;
+			top: 50% !important;
+			margin-top: -12px;
+		}
+
+		.oe_form_field_with_button .oe_m2o_cm_button[style*="display: inline"] + div .oe_m2o_drop_down_button {
+			margin-right: 22px;
+		}
+		
+	}
+
+// End of List.

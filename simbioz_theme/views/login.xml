@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Part of the Simbioz Theme by Paul Marlow, 2016-2017. All rights reserved. -->
+<openerp>
+    <data>
+
+        <!-- Login Page Styles and JS -->
+        <template id="login_layout" inherit_id="web.login_layout" name="Login Layout Inherit">
+            <xpath expr="//t[@t-set='head']/link[last()]" position="inside">
+
+                <!-- CSS Loader and mobile scaling -->
+                <link rel="stylesheet" href="/simbioz_theme/static/src/css/loader.css"/>
+                <meta name="viewport" content="width=device-width, initial-scale=0.95, maximum-scale=0.95, user-scalable=0"/>
+
+                <!-- Background styles -->
+                <style>
+                    
+                    html {
+                        display: table!important;
+                        min-width: 100%;
+                    }
+
+                    body {
+                        display: table-cell!important;
+                        vertical-align: middle!important;
+                        background:none!important;
+                        <t t-if="background_isbase64">
+                            background-image: url("data:image/jpg;base64,<t t-esc="background_url"/>")!important;
+                        </t>
+                        <t t-if="not background_isbase64">
+                            background-image: url(<t t-esc="background_url"/>)!important;
+                        </t>
+                        background-size: cover!important;
+                        background-repeat: no-repeat;
+                        background-position: center center!important;
+                    }
+
+                    body.oe_single_form .oe_single_form_container {
+                        margin: 0 auto!important;
+                        position: relative!important;
+                        margin-top: 0!important;
+                        margin-bottom: 0!important;
+                        left: 0!important;
+                        top: 0!important;
+                    }
+
+                </style>
+
+                <!-- LESS login styles -->
+                <link rel="stylesheet/less" type="text/less" href="/simbioz_theme/static/src/less/login.less"/>
+                <script type="text/javascript" src="/simbioz_theme/static/lib/less.min.js"></script>
+
+            </xpath>
+        </template>
+
+        <!-- Login page form placeholders -->
+        <template id="login" inherit_id="web.login" name="Login Inherit">
+            <xpath expr="//label[@for='login']" position="replace" />
+            <xpath expr="//label[@for='password']" position="replace" />
+            <xpath expr="//input[@name='login']" position="attributes">
+                <attribute name="placeholder">Email...</attribute>
+            </xpath>
+            <xpath expr="//input[@name='password']" position="attributes">
+                <attribute name="placeholder">Password...</attribute>
+            </xpath>
+            <xpath expr="//button[@type='submit']" position="replace">
+                <center>
+                    <button type="submit" class="btn btn-primary">Login</button>
+                    <a href="/web/database/manager" class="btn btn-db">...</a>
+                </center>
+            </xpath>
+        </template>
+
+    </data>
+</openerp>
